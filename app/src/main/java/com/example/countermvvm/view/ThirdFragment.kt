@@ -1,6 +1,5 @@
 package com.example.countermvvm.view
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -21,12 +20,10 @@ class ThirdFragment : Fragment() {
         return binding.root
     }
 
-    @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[CounterViewModel::class.java]
-        viewModel.history.observe(this){
-            binding.tvHistory.text = it.toString()
-        }
+        viewModel = ViewModelProvider(requireActivity())[CounterViewModel::class.java]
+
+        binding.tvHistory.text = viewModel.history.toString()
     }
 }

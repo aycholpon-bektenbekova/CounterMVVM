@@ -6,16 +6,16 @@ import androidx.lifecycle.ViewModel
 class CounterViewModel: ViewModel() {
     private var count = 0
     var mCounter = MutableLiveData<Int>()
-    var history = MutableLiveData<String>()
+    var history = arrayListOf<String>()
 
     fun onIncrementClick(){
         count++
         mCounter.value = count
-        history.value = "+"
+        history.add("+")
     }
     fun onDecrementClick(){
         count--
         mCounter.value = count
-        history.value = "-"
+        history.add("-")
     }
 }

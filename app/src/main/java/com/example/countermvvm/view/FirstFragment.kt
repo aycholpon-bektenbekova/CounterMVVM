@@ -18,7 +18,7 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentFirstBinding.inflate(layoutInflater)
-        viewModel = ViewModelProvider(this)[CounterViewModel::class.java]
+        viewModel = ViewModelProvider(requireActivity())[CounterViewModel::class.java]
         return binding.root
     }
 
